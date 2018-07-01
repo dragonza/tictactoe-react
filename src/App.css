@@ -1,0 +1,48 @@
+.container {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  min-width: 270px;
+}
+
+button:focus {
+  background-color: #fff;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.card {
+  margin-top: 1rem;
+}
+.card .card-content {
+  padding: 10px;
+}
+.card .card-content .card-title {
+  margin-bottom: 0;
+}
+
+.btn {
+  margin: 0 10px;
+}
+
+.symbol-selection {
+  margin: 1rem;
+}
+
+.square {
+  flex: 1 0 30%;
+  min-height: 8rem;
+  background: none;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid grey;
+  font-size: 6rem;
+}
+
+.mode-selection {
+  margin: 1rem 0;
+}
