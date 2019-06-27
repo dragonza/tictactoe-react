@@ -5,8 +5,21 @@ jobs:
       - image: circleci/node:8.10.0-stretch-browsers
     steps:
       - checkout
-      - run: npm install
-      - run: snyk test
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@5.7.1'
+            - run:
+                name: install-snyk
+                command: 'sudo npm install -g snyk'
+            - run: # run snyk help - test snyk is installed and working
+                name: snyk-help
+                command: snyk --help
+            - run: # run snyk auth - authenticate snyk use environment variables to add token
+                name: snyk auth
+                command: snyk auth $SNYK_TOKEN
+            - run: # run snyk test - run snyk test
+                name: snyk test
+                command: snyk test
   build:
     docker:
       - image: circleci/node:8.10.0-stretch-browsers
