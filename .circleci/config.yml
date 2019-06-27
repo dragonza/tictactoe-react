@@ -3,10 +3,10 @@ jobs:
   secure:
     docker:
       - image: circleci/node:8.10.0-stretch-browsers
-      steps:
-        - checkout
-        - run: npm install
-        - run: snyk test
+    steps:
+      - checkout
+      - run: npm install
+      - run: snyk test
   build:
     docker:
       - image: circleci/node:8.10.0-stretch-browsers
