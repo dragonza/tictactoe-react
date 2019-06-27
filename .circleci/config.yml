@@ -1,25 +1,18 @@
 version: 2
 jobs:
-  secure:
-    docker:
-      - image: circleci/node:8.10.0-stretch-browsers
-    steps:
-      - checkout
-      - run:
-          name: security check
-          command: 'snyk test'
   build:
     docker:
       - image: circleci/node:8.10.0-stretch-browsers
     steps:
       - checkout
-      - run: npm build
+      - run: npm install
+      - run: snyk test
   test:
     docker:
       - image: circleci/node:8.10.0-stretch-browsers
     steps:
       - checkout
-      - run: npm test
+      - run: npm run test
 workflows:
   version: 2
   build_and_test:
